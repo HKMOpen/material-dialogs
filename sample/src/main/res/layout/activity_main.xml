@@ -94,10 +94,17 @@
             android:layout_marginTop="@dimen/sample_button_spacing" />
 
         <Button
-            android:id="@+id/complex"
+            android:id="@+id/multiChoiceLimited"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="@string/complex"
+            android:text="@string/multiChoiceLimited"
+            android:layout_marginTop="@dimen/sample_button_spacing" />
+
+        <Button
+            android:id="@+id/simpleList"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/simple_list"
             android:layout_marginTop="@dimen/sample_button_spacing" />
 
         <Button
@@ -112,6 +119,20 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:text="@string/customView"
+            android:layout_marginTop="@dimen/sample_button_spacing" />
+
+        <Button
+            android:id="@+id/customView_webView"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/customView_webView"
+            android:layout_marginTop="@dimen/sample_button_spacing" />
+
+        <Button
+            android:id="@+id/customView_colorChooser"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/customView_colorChooser"
             android:layout_marginTop="@dimen/sample_button_spacing" />
 
         <Button
@@ -133,6 +154,34 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:text="@string/folder_chooser"
+            android:layout_marginTop="@dimen/sample_button_spacing" />
+
+        <Button
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/input"
+            android:layout_marginTop="@dimen/sample_button_spacing" />
+
+        <Button
+            android:id="@+id/progress1"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/progress_dialog"
+            android:layout_marginTop="@dimen/sample_button_spacing" />
+
+        <Button
+            android:id="@+id/progress2"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/progress_dialog_indeterminate"
+            android:layout_marginTop="@dimen/sample_button_spacing" />
+
+        <Button
+            android:id="@+id/preference_dialogs"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/preference_dialogs"
             android:layout_marginTop="@dimen/sample_button_spacing" />
 
     </LinearLayout>

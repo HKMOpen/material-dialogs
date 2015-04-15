@@ -2,9 +2,10 @@ package com.afollestad.materialdialogssample;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -25,7 +26,7 @@ public class FolderSelectorDialog extends DialogFragment implements MaterialDial
     private boolean canGoUp = true;
     private FolderSelectCallback mCallback;
 
-    private MaterialDialog.ButtonCallback mButtonCallback = new MaterialDialog.ButtonCallback() {
+    private final MaterialDialog.ButtonCallback mButtonCallback = new MaterialDialog.ButtonCallback() {
         @Override
         public void onPositive(MaterialDialog materialDialog) {
             materialDialog.dismiss();
@@ -38,7 +39,7 @@ public class FolderSelectorDialog extends DialogFragment implements MaterialDial
         }
     };
 
-    public static interface FolderSelectCallback {
+    public interface FolderSelectCallback {
         void onFolderSelection(File folder);
     }
 
@@ -47,7 +48,7 @@ public class FolderSelectorDialog extends DialogFragment implements MaterialDial
         parentContents = listFiles();
     }
 
-    public String[] getContentsArray() {
+    String[] getContentsArray() {
         String[] results = new String[parentContents.length + (canGoUp ? 1 : 0)];
         if (canGoUp) results[0] = "...";
         for (int i = 0; i < parentContents.length; i++)
@@ -55,9 +56,9 @@ public class FolderSelectorDialog extends DialogFragment implements MaterialDial
         return results;
     }
 
-    public File[] listFiles() {
+    File[] listFiles() {
         File[] contents = parentFolder.listFiles();
-        List<File> results = new ArrayList<File>();
+        List<File> results = new ArrayList<>();
         for (File fi : contents) {
             if (fi.isDirectory()) results.add(fi);
         }
@@ -99,12 +100,11 @@ public class FolderSelectorDialog extends DialogFragment implements MaterialDial
         mCallback = (FolderSelectCallback) activity;
     }
 
-    public void show(Activity context) {
-        show(context.getFragmentManager(), "FOLDER_SELECTOR");
+    public void show(ActionBarActivity context) {
+        show(context.getSupportFragmentManager(), "FOLDER_SELECTOR");
     }
 
-
-    public static class FolderSorter implements Comparator<File> {
+    private static class FolderSorter implements Comparator<File> {
         @Override
         public int compare(File lhs, File rhs) {
             return lhs.getName().compareTo(rhs.getName());
